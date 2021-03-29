@@ -1,5 +1,11 @@
 node default {
   package{'vim':}
+
+
+  yumrepo { 'lustre-client':
+    baseurl => 'https://downloads.whamcloud.com/public/lustre/latest-2.12-release/el7/client/',
+    gpgcheck => 0
+  }
 }
 
 node 'mds1' {
