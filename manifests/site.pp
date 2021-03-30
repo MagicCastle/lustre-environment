@@ -1,5 +1,6 @@
 node default {
   package{'vim':}
+  package{'clush':}
 
 
   yumrepo { 'lustre-client':
