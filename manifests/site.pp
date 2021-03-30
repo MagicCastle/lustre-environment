@@ -1,6 +1,7 @@
 node default {
+  include epel
   package{'vim':}
-  package{'clush':}
+  package{'clustershell':}
 
 
   yumrepo { 'lustre-client':
