@@ -1,5 +1,5 @@
 class profile::base {
-  include epel
+  require epel
   package{'vim':}
   package{'clustershell':}
 
