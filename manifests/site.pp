@@ -6,6 +6,9 @@ node default {
     gpgcheck => 0
   }
   package { ['kmod-lustre-client', 'lustre-client']: }
+  kmod::load { ['lustre']:
+    require => Package['kmod-lustre-client']
+  }
 }
 
 node /^(mds|oss)(\d+)$/ {
@@ -26,5 +29,9 @@ node /^(mds|oss)(\d+)$/ {
   package { ['lustre', 'kmod-lustre-osd-ldiskfs']: }
   reboot { 'after_kmod-lustre':
     subscribe => Package['kmod-lustre-osd-ldiskfs'],
+  }
+
+  kmod::load { ['lustre']:
+    require => Package['kmod-lustre-osd-ldiskfs']
   }
 }
